@@ -1,0 +1,38 @@
+서브페이지 : react-router-dom
+전역변수 : zustand
+swiper : swiper
+디자인 : sass (scss)
+로그인 : firebase
+
+npm install react-router-dom zustand swiper sass firebase
+npm run dev
+
+src에 파일생성
+- components
+  - scss
+- data
+- firebase
+- pages
+  - scss
+- store
+- types
+
+main.tsx 파일에 BrowserRouter 감싸기
+  <BrowserRouter>
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </BrowserRouter>
+
+App.tsx 안에 내용 비워놓기
+
+components에 헤더푸터 만들기
+
+pages에 기본 홈 만들기
+
+App에 넣기
+   <Header/>
+   <Routes>
+     <Route path="/" element={<Home/>}/>
+   </Routes>
+   <Footer/>

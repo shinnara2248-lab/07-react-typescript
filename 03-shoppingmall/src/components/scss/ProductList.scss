@@ -1,0 +1,20 @@
+@use "../../App.scss" as g;
+
+.sort-buttons{
+    @include g.myFlex($jc:flex-start,$gap:10px);
+    button{
+        padding: 4px 8px;
+        border-radius: g.$size;
+        &.active{
+            background: #111;
+            color:#fff
+        }
+    }
+}
+
+
+.sub-goods-list{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: g.$size;
+}

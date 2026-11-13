@@ -1,0 +1,56 @@
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import "./App.scss"
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
+import { Home } from './pages/Home'
+import { useProductStore } from './store/useProductStore'
+import { useEffect } from 'react'
+import { All } from './pages/All'
+import { Men } from './pages/Men'
+import { Women } from './pages/Women'
+import { Accessories } from './pages/Accessories'
+import { Shoes } from './pages/Shoes'
+import { Login } from './pages/Login'
+import { Member } from './pages/Member'
+import { Cart } from './pages/Cart'
+import { SearchPage } from './pages/SearchPage'
+import { ProductDetail } from './pages/ProductDetail'
+
+function App() {
+  const { onFetchItems } = useProductStore();
+  // 데이터를 불러오는 메서드 한번만 실행, 값이 변경되면 실행
+  useEffect(() => {
+    onFetchItems()
+  }, [onFetchItems])
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+        {/* 메뉴페이지 */}
+        <Route path="/all" element={<All />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/shoes" element={<Shoes />} />
+
+        {/* 상품 상세페이지 */}
+        <Route path="/product/:id" element={<ProductDetail />} />
+
+        {/* gnb 메뉴 */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/member" element={<Member />} />
+        <Route path="/cart" element={<Cart />} />
+
+        {/* searchPage */}
+        <Route path="/searchPage" element={<SearchPage/>}/>
+
+      </Routes>
+      <Footer />
+    </>
+  )
+}
+
+export default App

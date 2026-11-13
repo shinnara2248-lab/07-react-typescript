@@ -1,0 +1,6 @@
+@use "../../App.scss" as g;
+footer{
+    background: #111;
+    color: #fff;
+    padding: g.$size 0;
+}
